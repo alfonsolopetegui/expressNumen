@@ -17,6 +17,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
+  categoria: {
+    type: String,
+    required: true,
+  },
   precio: {
     base: {
       type: Number,

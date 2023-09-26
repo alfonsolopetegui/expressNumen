@@ -5,6 +5,7 @@ const { check } = require("express-validator");
 const { emailExiste, validarCampos } = require("../../middlewares/validators");
 
 router.get("/userList", UserController.getUser);
+
 router.post(
   "/userCreate",
   [
@@ -24,6 +25,7 @@ router.put(
   [check("id", "No es un ID válido").isMongoId(), validarCampos],
   UserController.putUser
 );
+
 router.delete(
   "/userDelete/:id",
   [check("id", "No es un ID válido").isMongoId(), validarCampos],
