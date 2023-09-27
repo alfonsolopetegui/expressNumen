@@ -1,4 +1,5 @@
 const { Products } = require("../models/products");
+const axios = require("axios");
 
 class ProductsController {
   async getAllProducts(req, res) {
@@ -59,8 +60,24 @@ class ProductsController {
       });
     } catch (error) {
       res.json({
-        errores: error
-      })
+        errores: error,
+      });
+    }
+  }
+
+
+  //API externa 
+  
+  async getApiProducts(req, res) {
+    try {
+      const consulta = await axios.get("https://fakestoreapi.com/products");
+
+      const response = consulta.data;
+
+      res.json(response);
+
+    } catch (error) {
+      res.json(error)
     }
   }
 }

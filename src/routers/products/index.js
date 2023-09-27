@@ -34,4 +34,9 @@ router.delete(
   ProductsController.deleteProduct
 );
 
+
+//llamada a API externa
+
+router.get("/fakeApiProducts", ProductsController.getApiProducts);
+
 module.exports = router;
